@@ -82,3 +82,7 @@ Pode abrir PR. Mas saiba que o Zé vai revisar com sarcasmo.
 ---
 
 > Feito com raiva, café e a vontade de não virar Scrum Master de verdade.
+
+🔒 O código-fonte é licenciado sob CC BY-NC-ND 4.0 em nome da Envolve.  
+Isso significa que você pode usar para aprendizado, mas **não pode vender, revender ou oferecer como produto/serviço comercial**.  
+Para parcerias comerciais, entre em contato: contato@envolve.digital
