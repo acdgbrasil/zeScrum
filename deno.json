@@ -1,6 +1,6 @@
 {
     "tasks": {
-        "start": {
+        "a": {
             "description": "Start the Deno application",
             "command": "deno run --allow-net --allow-read --allow-env main.ts"
         },

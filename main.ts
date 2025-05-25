@@ -1,8 +1,3 @@
-import { BoardCard } from "./src/domain/github/entity/boardCard.ts";
-import { Content } from "./src/domain/github/entity/content.ts";
-import { getBoardData, getProjectFilds } from "./src/infra/github/github.ts";
-
-
 // const boardObject = await getBoardData();
 // const cards: BoardCard[] = [];
 // for (let i=0; i< 5;i++) {
@@ -17,9 +12,9 @@ import { getBoardData, getProjectFilds } from "./src/infra/github/github.ts";
 //         boardObject[i].updatedAt,
 //         content,{})
 //     console.log(cardInformations)
-    
-
 //     cards.push(card);
 // }
 
-console.log(await getProjectFilds())
+import { getBoardCards, getBoardData, getProjectFilds } from "./src/infra/kaban/github/github.ts";
+
+await getBoardCards();
