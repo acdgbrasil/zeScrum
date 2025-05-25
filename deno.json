@@ -1,0 +1,16 @@
+{
+    "tasks": {
+        "start": {
+            "description": "Start the Deno application",
+            "command": "deno run --allow-net --allow-read --allow-env main.ts"
+        },
+        "test": {
+            "description": "Run tests",
+            "command": "deno test --allow-net --allow-read"
+        },
+        "lint": {
+            "description": "Lint the code",
+            "command": "deno lint"
+        }
+    }
+}

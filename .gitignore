@@ -1,0 +1,26 @@
+# Arquivo de ambiente (NUNCA versionar)
+.env
+
+# Arquivos de backup ou temporários
+*.log
+*.tmp
+*.bak
+*.swp
+
+# Cache do sistema (VS Code, Deno, IDEs)
+.vscode/
+.idea/
+.DS_Store
+
+# Compilados locais (caso use `deno compile`)
+*.exe
+*.out
+
+# Exportações automáticas (caso gere dados temporários)
+export*.json
+report*.md
+
+# Ignorar outputs de testes, se usar
+/coverage
+# Ignorar arquivos de configuração do Deno
+deno.lock
