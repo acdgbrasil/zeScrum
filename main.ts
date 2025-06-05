@@ -15,6 +15,12 @@
 //     cards.push(card);
 // }
 
-import { getBoardCards, getBoardData, getProjectFilds } from "./src/infra/kaban/github/github.ts";
+import { app } from "./src/application/app.ts";
 
-await getBoardCards();
+// import { getBoardCards, getBoardData, getProjectFilds } from "./src/infra/kaban/github/github.ts";
+
+// const a = await getBoardCards();
+// const b = await getBoardData();
+// console.log(b);
+
+await app();

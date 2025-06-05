@@ -1,4 +1,4 @@
-export const messageWithDate = (mesage:string) => {
+export const messageWithDate = (mesage:string,_color?:string) => {
     const date = Date.now();
     const dateString = new Date(date).toLocaleString('pt-BR', {
         year: 'numeric',
@@ -8,7 +8,8 @@ export const messageWithDate = (mesage:string) => {
         minute: '2-digit',
         second: '2-digit',
     });
-    return `[${dateString}] ${mesage}`;
+    console.log(`%c[${dateString}]: ` + `${mesage}`,`color:${_color ? _color : 'white'}`);
+    return
 }
 
 

@@ -2,7 +2,7 @@
     "tasks": {
         "a": {
             "description": "Start the Deno application",
-            "command": "deno run --allow-net --allow-read --allow-env main.ts"
+            "command": "deno run --allow-net --allow-sys --allow-read --allow-env --watch main.ts"
         },
         "test": {
             "description": "Run tests",
@@ -12,5 +12,8 @@
             "description": "Lint the code",
             "command": "deno lint"
         }
+    },
+    "imports": {
+        "mongoose": "npm:mongoose@^8.15.1"
     }
 }

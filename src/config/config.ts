@@ -18,8 +18,12 @@ function loadEnv(){
   const DISCORD_WEBHOOK = getEnv("DISCORD_WEBHOOK");
 
   // IA
-  const AI_PROVIDER = Deno.env.get("AI_PROVIDER") || "openai";
+  const AI_PROVIDER = getEnv("AI_PROVIDER");
   const OPENAI_API_KEY = getEnv("OPENAI_API_KEY");
+  const URL_MONG = getEnv("URL_MONG");
+  const MONGO_DB_NAME = getEnv("MONGO_DB_NAME");
+  const LAST_SPRINT = getEnv("LAST_SPRINT_NUMBER");
+  const DISCORD_TOKEN = getEnv("DISCORD_TOKEN");
   const a = messageWithDate(`ENV VARIEBLES ARE LOADED WITH SUCESS!`);
   console.log(a);
   return {
@@ -29,6 +33,10 @@ function loadEnv(){
     DISCORD_WEBHOOK,
     AI_PROVIDER,
     OPENAI_API_KEY,
+    URL_MONG,
+    MONGO_DB_NAME,
+    LAST_SPRINT,
+    DISCORD_TOKEN
   }
 
 }
