@@ -18,7 +18,7 @@ import { createRelatoryUseCase } from "./useCase/sendRelatoryUseCase.ts";
 
 const initProgram = async () => {
     await initProducerConsumer(0);
-    setTimer(60*3);
+    setTimer(0);
     todaySnapShot(0);
 }
 const initProducerConsumer = async (workers: number) => {

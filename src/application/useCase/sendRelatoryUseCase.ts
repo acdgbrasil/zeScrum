@@ -12,9 +12,7 @@ export const createRelatoryUseCase = async (): Promise<void> => {
         board: jsonOfInformationsOfBoard,
         discord: snapshotOfDiscord
     })
-    const botMoment = await sendToChat({
-        whoIsSending: "zeScrum Bot",
-        promptMessage: createPrompt(jsonOfInformationsOfBoard, snapshotOfDiscord, `
+    const t = createPrompt(jsonOfInformationsOfBoard, snapshotOfDiscord, `
             Os objetivos dessa sprint são:
             - Entregar todos os cards do board
             - Terminar pelo menos 3 formulários do CONECTA RAROS,
@@ -24,10 +22,14 @@ export const createRelatoryUseCase = async (): Promise<void> => {
 
            ----
            # Observações:
-           - Essa sprint (SPRINT 11) acaba no dia:  01/08/2025 `),
+           - Essa sprint (SPRINT 11) acaba no dia:  01/08/2025 `)
+    const botMoment = await sendToChat({
+        whoIsSending: "zeScrum Bot",
+        promptMessage: t,
         contexts: []
     })
-    await sendToDayMessage(botMoment);
+    const a = botMoment.choices[0].message.content
+    await sendToDayMessage(a);
 }
 
 

@@ -23,7 +23,16 @@ export async function sendToChat(prompt: SEND_PROMPT): Promise<string> {
     },
     body: JSON.stringify({
       model: "gpt-3.5-turbo",
-      messages: prompt,
+      messages: [
+        {
+          role: "system",
+          content:prompt.whoIsSending,
+        },
+        {
+          role: "user",
+          content: prompt.promptMessage,
+        },
+      ],
     }),
   });
   return await response.json();

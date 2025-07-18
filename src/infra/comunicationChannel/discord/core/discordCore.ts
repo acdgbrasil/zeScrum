@@ -9,5 +9,5 @@ export const discordClient = new Client({
         GatewayIntents.GUILD_MESSAGE_REACTIONS,
         GatewayIntents.GUILD_MESSAGE_TYPING
     ],
-    
+    id: "1376332473197269054",
 });
