@@ -1,3 +1,4 @@
+
 export const formatedDatePtBr = () => {
   const date = new Date(Date.now()).toLocaleDateString("pt-BR", {
     year: "numeric",
@@ -8,19 +9,24 @@ export const formatedDatePtBr = () => {
     second: "2-digit",
     hour12: false,
   });
+  
   const [day, month, restOfStringData] = date.split("/");
   const [year, time] = restOfStringData.split(", ");
   const [hour, minute, second] = time.split(":");
-  const yesterdayComplet = new Date(Date.now() - 24 * 60 * 60 * 1000)
-    .toLocaleDateString("pt-BR", {
-      year: "numeric",
-      month: "2-digit",
-      day: "2-digit",
-      hour: "2-digit",
-      minute: "2-digit",
-      second: "2-digit",
-      hour12: false,
-    });
+  const allHoursAtDay = 24;
+  const howTimeLastToEndOfDay = allHoursAtDay - new Date().getHours();
+  const newDateInMinutes = new Date().getHours() + allHoursAtDay + howTimeLastToEndOfDay;
+
+
+  const yesterdayComplet = new Date(Date.now()).toLocaleDateString("pt-BR", {
+    year: "2-digit",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: false,
+  })
 
   const [yDay, yMonth, yRestOfStringData] = yesterdayComplet.split("/");
   const [yYear, yTime] = yRestOfStringData.split(", ");
@@ -42,6 +48,27 @@ export const formatedDatePtBr = () => {
         `${day}-${month}-${year} ${hour}:${minute}`,
       "day_month_year_hour_with_dash": `${day}-${month}-${year} ${hour}`,
       "day_month_year_with_dash": `${day}-${month}-${year}`,
+      "day_month_year_with_dash_yesterday": `${Number(yDay) - 1}-${month}-${year}`,
+      genericFormat:
+        ((
+          date: Date,
+          localeValue?: string,
+          options?: Intl.DateTimeFormatOptions,
+        ) => date.toLocaleDateString(localeValue, options)),
+    },
+    yDateFormat: {
+      "day_month_year": `${Number(day) - 1}/${month}/${year}`,
+      "day_month_year_hour_minutes_secounds":
+        `${Number(day) - 1}/${month}/${year} ${hour}:${minute}:${second}`,
+      "day_month_year_hour_minutes":
+        `${Number(day) - 1}/${month}/${year} ${hour}:${minute}`,
+      "day_month_year_hour": `${Number(day) - 1}/${month}/${year} ${hour}`,
+      "day_month_year_hour_minutes_secounds_with_dash":
+        `${Number(day) - 1}-${month}-${year} ${hour}:${minute}:${second}`,
+      "day_month_year_hour_minutes_with_dash":
+        `${Number(day) - 1}-${month}-${year} ${hour}:${minute}`,
+      "day_month_year_hour_with_dash": `${Number(day) - 1}-${month}-${year} ${hour}`,
+      "day_month_year_with_dash": `${Number(day) - 1}-${month}-${year}`,
       "day_month_year_with_dash_yesterday": `${yDay}-${month}-${year}`,
       genericFormat:
         ((
@@ -52,6 +79,7 @@ export const formatedDatePtBr = () => {
     },
     dateIndividual: {
       int: {
+        sumAll: newDateInMinutes,
         day: Number(day),
         month: Number(month),
         year: Number(year),

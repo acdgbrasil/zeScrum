@@ -2,6 +2,10 @@ import {load} from "jsr:@std/dotenv";
 
 const env = await load({export: true,envPath: "./.env"});
 
+export const SNAPSHOT_CONFIG = {
+    timeForFirstSnapshot: (1000*60)*10, // 10 minutes
+}
+
 export const KAMBAN = {
     token:env.GITHUB_TOKEN,
     org: env.GITHUB_ORG,

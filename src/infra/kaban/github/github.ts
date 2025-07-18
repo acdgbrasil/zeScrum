@@ -252,6 +252,12 @@ export const getOfBoardCardsOfActualSprint = (boardData:{id: string;
     return getCardsForActualSprint;
 }
 
+export const actualBoardSprintDay = async (sprint:GITHUB_SPRINTS) => {
+  const boardData = await getBoardData();
+  const actualSprintBoardData = getOfBoardCardsOfActualSprint(boardData, sprint);
+  return actualSprintBoardData;
+}
+
 export const compareDaysOfBoard = async (actualSprint:GITHUB_SPRINTS) => {
   
   const filePath = join("cache",
@@ -260,8 +266,7 @@ export const compareDaysOfBoard = async (actualSprint:GITHUB_SPRINTS) => {
     "board",actualSprintNameFormatted(actualSprint))
 
   const filePathToday = join(filePath, `${formatedDatePtBr().dateFormat.day_month_year_with_dash}.json`);
-  const filePathYesterday = join(filePath, `${formatedDatePtBr().dateFormat.day_month_year_with_dash_yesterday}.json`);
-
+  const filePathYesterday = join(filePath, `${formatedDatePtBr().yDateFormat.day_month_year_with_dash_yesterday}.json`);
   const fileToday = await Deno.readTextFile(filePathToday);
   const fileYesterday = await Deno.readTextFile(filePathYesterday);
   
@@ -278,6 +283,7 @@ export const compareDaysOfBoard = async (actualSprint:GITHUB_SPRINTS) => {
     sprint: string | null;
     dataEntregue: string | null;
   }[] = JSON.parse(fileToday);
+  
   const jsonYesterday: {
     id: string;
     title: string;

@@ -1,6 +1,22 @@
 export const discordConfigs = () => {
     const DISCORD_CHANNELS_NAME = new Map<string, string>()
     DISCORD_CHANNELS_NAME.set("1343704126806294558", "daily");
+    DISCORD_CHANNELS_NAME.set("973237391429075065","geral");
+    DISCORD_CHANNELS_NAME.set("973237303046725673","duvidas gerais");
+    DISCORD_CHANNELS_NAME.set("1029455889595383821","ausencias");
+    DISCORD_CHANNELS_NAME.set("973240544912351292","pull requests");
+    DISCORD_CHANNELS_NAME.set("1005190841159131257","bugs achados");
+    DISCORD_CHANNELS_NAME.set("1007341143895310336","sprint review");
+    DISCORD_CHANNELS_NAME.set("1080904960016912396","canal de bots");
+    DISCORD_CHANNELS_NAME.set("1136722888729305249","sugestões");
+    DISCORD_CHANNELS_NAME.set("1376332473197269054","relatorios do zeScrum");
+    DISCORD_CHANNELS_NAME.set("1379104627118706718","pedidos de clientes");
+    DISCORD_CHANNELS_NAME.set("1379104683880353832","duvidas de clientes");
+    DISCORD_CHANNELS_NAME.set("1070700834813395016","objetivos da sprint");
+    DISCORD_CHANNELS_NAME.set("1070700923531300905","objetivos da reliase");
+    DISCORD_CHANNELS_NAME.set("1386062672453439608","atualizações do board");
+
+    
     return {
         DISCORD_CHANNELS_ID: {
             DAILY: "1343704126806294558",

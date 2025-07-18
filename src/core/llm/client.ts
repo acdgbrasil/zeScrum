@@ -1,7 +1,20 @@
 import { IA } from "../../config/config.ts";
 import { TEXT_CONSTANT } from "../../config/textCostant.ts";
 
-export async function generateWithGPT(prompt: string): Promise<string> {
+export type SEND_PROMPT = {
+  whoIsSending: string,
+  promptMessage: string,
+  contexts: CONTEXT,
+};
+
+export type CONTEXT = 
+  {
+    role: string,
+    content: string
+  }[];
+
+
+export async function sendToChat(prompt: SEND_PROMPT): Promise<string> {
   const response = await fetch("https://api.openai.com/v1/chat/completions", {
     method: "POST",
     headers: {
@@ -10,13 +23,7 @@ export async function generateWithGPT(prompt: string): Promise<string> {
     },
     body: JSON.stringify({
       model: "gpt-3.5-turbo",
-      messages: [
-        {
-          role: "system",
-          content: TEXT_CONSTANT.SCRUM_PROMPT,
-        },
-        { role: "user", content: prompt },
-      ],
+      messages: prompt,
     }),
   });
   return await response.json();
